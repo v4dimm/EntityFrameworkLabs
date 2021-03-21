@@ -1,0 +1,36 @@
+﻿@model Lab.Models.Entities.Person
+
+@{
+    ViewBag.Title = "PersonDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Участник опроса</h2>
+<h4>Person</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-1">@Html.LabelFor(model => model.LastName)</div>
+    <div class="col-md-3">@Html.DisplayFor(model => model.LastName)</div>
+
+    <div class="col-md-1">@Html.LabelFor(model => model.FirstName)</div>
+    <div class="col-md-3">@Html.DisplayFor(model => model.FirstName)</div>
+
+    <div class="col-md-1">@Html.LabelFor(model => model.Patronymic)</div>
+    <div class="col-md-3">@Html.DisplayFor(model => model.Patronymic)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-1">@Html.LabelFor(model => model.Age)</div>
+    <div class="col-md-3">@Html.DisplayFor(model => model.Age)</div>
+
+    <div class="col-md-1">@Html.LabelFor(model => model.Gender)</div>
+    <div class="col-md-3">@Html.DisplayFor(model => model.Gender)</div>
+
+    <div class="col-md-1">@Html.LabelFor(model => model.HasJob)</div>
+    <div class="col-md-3">@Html.DisplayFor(model => model.HasJob)</div>
+</div>
+
+<p>
+    @Html.ActionLink("Назад", "ListOfPeople")
+</p>

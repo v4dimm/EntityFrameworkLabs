@@ -1,0 +1,48 @@
+﻿@model List<Lab.Models.Entities.Person>
+
+@{
+    ViewBag.Title = "ListOfPeople";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Список участников опроса</h2>
+@Html.ActionLink("Добавить человека", "CreatePerson", "Lab2", new { @class = "btn btn-default" })
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Наименование</th>
+            <th class="text-center">Возраст</th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th class="text-center">#</th>
+                if (User.IsInRole("Admin"))
+                {
+                    <th class="text-center">#</th>
+                    <th class="text-center">#</th>
+                }
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+        <tr class="text-center">
+            <td>
+                @person.LastName @person.FirstName @person.Patronymic
+                (@{ Html.RenderAction("QuestionAnswered", new { personID = person.Id });})
+            </td>
+            <td>@person.Age</td>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <td>@Html.ActionLink("подробнее", "PersonDetails", "Lab2", new { personId = person.Id }, null)</td>
+                if (User.IsInRole("Admin"))
+                {
+                    <td>@Html.ActionLink("редактировать", "EditPerson", new { controller = "Lab2", personID = person.Id })</td>
+                    <td>@Html.ActionLink("удалить", "DeletePerson", new { controller = "Lab2", personID = person.Id })</td>
+                }
+            }
+        </tr>
+        }
+    </tbody>
+</table>

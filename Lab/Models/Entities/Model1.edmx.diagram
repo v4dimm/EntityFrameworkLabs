@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="24ea82773ec84d88be9b2a3f80ffc476" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="LabModel.Person" Width="1.5" PointX="7" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabModel.Question" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabModel.Answer" Width="1.5" PointX="5" PointY="1" />
+        <AssociationConnector Association="LabModel.FK_Answer_Person" />
+        <AssociationConnector Association="LabModel.FK_Answer_Question" />
+        <EntityTypeShape EntityType="LabModel.Role" Width="1.5" PointX="7.375" PointY="4.25" />
+        <EntityTypeShape EntityType="LabModel.User" Width="1.5" PointX="10.375" PointY="1.25" />
+        <AssociationConnector Association="LabModel.FK_Person_User" />
+        <AssociationConnector Association="LabModel.FK_User_Role" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
